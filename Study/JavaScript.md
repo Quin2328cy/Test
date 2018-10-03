@@ -29,3 +29,5 @@ arr; // arr变为[1, 2, 3, undefined, undefined, 'x']
 > reverse
 > splice
 > join
+
+ready for conditional loop
