@@ -12,7 +12,7 @@ Update:直接存为PDF可以查看，但是属性值不好确认
 因为树的结构过大，会以0.13的比例进行缩放导致无法直接查看，只好转存为svg格式，但是Visio也无法很好的打开，只好尝试直接输出各属性值所占的比例
 
 ```
-
+> PDF 下载链接 https://github.com/Aaron0813/Test/blob/master/Study/Decision%20Tree.pdf
 ```python
 # -*- coding: utf-8 -*-
 import os 
