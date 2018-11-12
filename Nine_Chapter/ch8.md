@@ -73,6 +73,8 @@ public List<Integer> topk(){
 
 
 /*这个代码有问题啊,Java的PriorityQueue默认是最小堆,需要重写Compareable方法实现最大堆*/
+/*左边-右边--> 从小到大
+  右边-左边--> 从大到小*/
 private static final int DEFAULT_INITIAL_CAPACITY = 11;
 PriorityQueue<Integer> maxHeap=new PriorityQueue<Integer>(DEFAULT_INITIAL_CAPACITY, new Comparator<Integer>() {
         @Override
@@ -111,5 +113,26 @@ public List<Integer> topk(){
   Collections.sort(result, Collections.reverseOrder());
   return result;
 }
+
+TreeMap如何使用
+```
+
+> Merge K sorted List
+好好练习
+```
+1. 把每个list的头放到minHeap里面
+private Comparator<ListNode> ListNodeComparator = new Comparator<ListNode>(){
+  public int compare(ListNode left, ListNode right){
+    return left.val - right.val;
+   }
+};
+
+尝试自己去LeetCode写一遍好了
+
+2. 两个两个的merge--自底向上
+
+3. 归并排序--自顶向下
+
+
 
 ```
