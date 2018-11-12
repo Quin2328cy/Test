@@ -47,6 +47,7 @@ Top K Largest Number II(还有一个kth 最小值,针对两个已经排好序的
 ```
 > Top K Largest Numbers II
 ```java
+
 private int K;// K means the size of Queue
 public Solution(int K){
   Queue<Integer> queue = new PriorityQueue<Integer>();
@@ -62,11 +63,53 @@ public List<Integer> topk(){
   for(int i = 0; i < K; i++){
     list.add(queue.pol());
   }
-  
+                      
   for(Integer num: list){
     queue.offer(num);
   }
   
   return list;
 }
+
+
+/*这个代码有问题啊,Java的PriorityQueue默认是最小堆,需要重写Compareable方法实现最大堆*/
+private static final int DEFAULT_INITIAL_CAPACITY = 11;
+PriorityQueue<Integer> maxHeap=new PriorityQueue<Integer>(DEFAULT_INITIAL_CAPACITY, new Comparator<Integer>() {
+        @Override
+        public int compare(Integer o1, Integer o2) {                
+            return o2-o1;
+        }
+    });
+    
+    
+/**改进-只存储Top K个数字/
+// 用MinHeap来存储当前的Top K个数字,每当加入一个新的值,就通过对比最小的值来进行更新
+
+private int maxSize;
+private Queue<Integer> minheap;
+public void Solution(int k){
+  minheap = new PriorityQueue<>();
+  maxSize = k;
+}
+
+public void add(int num){
+  if(minheap.size() < maxSize){
+    minheap.offer(num);
+  }
+  if(minheap.top() < num){
+    minheap.poll();
+    minheap.offer(num);
+  }
+}
+
+public List<Integer> topk(){
+  Iterator it = minheap.iterator();
+  List<Integer> result = new ArrayList<Integer>();
+  while(it.hashNext()){
+    result.add((Integer)it.next()){
+  }
+  Collections.sort(result, Collections.reverseOrder());
+  return result;
+}
+
 ```
