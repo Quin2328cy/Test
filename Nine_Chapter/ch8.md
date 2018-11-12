@@ -32,3 +32,41 @@ Rehash 动态膨胀
 2. Singly List: HashMap 里面存每个节点的前序节点,其中第一个节点用dummyNode来存储
 多练习几遍—涉及到很多的链表操作
 ```
+
+#### Heap VS PriorityQueue
+```
+PriorityQueue的删除操作很慢-O(n)---复习一下queue的接口操作
+
+
+Ugly Number-> Priority Queue + HashSet
+
+Top K Largest Number II(还有一个kth 最小值,针对两个已经排好序的数组-quick select)
+
+
+
+```
+> Top K Largest Numbers II
+```java
+private int K;// K means the size of Queue
+public Solution(int K){
+  Queue<Integer> queue = new PriorityQueue<Integer>();
+  this.K = K;
+}
+
+public void add(int num){
+  queue.offer(num);
+}
+
+public List<Integer> topk(){
+  List<Integer> list = new ArrayList<Integer>();
+  for(int i = 0; i < K; i++){
+    list.add(queue.pol());
+  }
+  
+  for(Integer num: list){
+    queue.offer(num);
+  }
+  
+  return list;
+}
+```
