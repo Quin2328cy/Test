@@ -24,7 +24,8 @@ Rehash 动态膨胀
 
 ``` 
 
-####### LRU Cache
+##### LRU Cache
+
 > 有存储限制的Hash-LinkedList
 ```
 实现
